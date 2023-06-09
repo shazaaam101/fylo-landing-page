@@ -1,0 +1,296 @@
+*, *::before, *::after {
+  box-sizing: border-box;
+  padding: 0;
+  margin: 0;
+}
+
+:root {
+  --primary-fs: 14px;
+  --primary-ffam: 'Raleway', sans-serif;
+  --secondary-ffam: 'Open Sans', sans-serif;
+  --primary-fw: 700;
+  --secondary-fw: 400;
+  --primary-intro-email-bg: hsl(217, 28%, 15%);
+  --primary-main-bg: hsl(218, 28%, 13%);
+  --primary-footer-bg: hsl(216, 53%, 9%);
+  --primary-testimonials-bg: hsl(219, 30%, 18%);
+  --neutral-very-white: hsl(0, 0%, 100%);
+  --neutral-white: hsl(0, 0%, 85%);
+  --neutral-grayish-white: hsl(0, 0%, 75%);
+  --accent-cyan: hsl(176, 68%, 64%);
+  --accent-blue: hsl(198, 60%, 50%);
+  --accent-light-red-error: hsl(0, 100%, 63%);
+}
+
+img {
+  display: block;
+  max-width: 100%;
+  height: auto;
+
+}
+
+h1 {
+  color: var(--neutral-very-white);
+  font-family: var(--primary-ffam);
+  font-weight: var(--primary-fw);
+  font-size: 2.5rem;
+}
+
+input {
+  width: 100%;
+}
+
+button {
+  cursor: pointer;
+  padding: 1em 3em;
+  border: none;
+  border-radius: 10em;
+  color: var(--neutral-very-white);
+  background: linear-gradient(to right, var(--accent-cyan) 0%, var(--accent-blue) 100%);
+  position: relative;
+  overflow: hidden;
+  z-index: 99;
+}
+
+button::after {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: -100%;
+  width: 100%;
+  height: 100%;
+  background-color: var(--accent-cyan);
+  transition: left 0.3s cubic-bezier(0.7, 0, 0.3, 1);
+  z-index: -1;
+}
+
+button:hover::after {
+  left: 0;
+}
+
+.App {
+  min-height: 100vh;
+  min-height: 100dvh;
+  background-color: var(--primary-intro-email-bg);
+  font-family: var(--secondary-ffam);
+  font-size: var(--primary-fs);
+  font-weight: var(--secondary-fw);
+  color: var(--neutral-white);
+}
+
+.App .intro-bg {
+  background-image: url("./images/bg-curvy-desktop.svg");
+  background-size: contain;
+  background-repeat: no-repeat;
+  background-position: bottom;
+  padding-bottom: 20em;
+}
+
+.App .main-bg {
+  background-color: var(--primary-main-bg);
+}
+
+.App .wrapper {
+  position: relative;
+  display: grid;
+  place-items: center;
+  padding-inline: 2rem;
+}
+
+
+.App .wrapper > * + * {
+  margin-top: 10em;
+}
+
+.App section.intro {
+  max-width: 50rem;
+  text-align: center;
+}
+
+.App section.intro > *:not(:first-child){
+  margin-top: 1em;
+}
+
+.App section.intro button {
+  padding-inline: 5em;
+}
+
+
+
+.App section.features {
+  max-width: 60rem;
+  text-align: center;
+}
+
+.App section.features .grid {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 4rem;
+}
+
+.App .feature {
+  display: grid;
+  justify-items: center;
+  align-items: center;
+}
+
+.App .feature > *:not(:first-child){
+  margin-top: 1em;
+}
+
+.App .feature > h1{
+  font-size: 1.5rem;
+}
+
+.App section.two-panels {
+  width: min(90%, 80rem);
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  gap: 1rem;
+}
+
+.App section.two-panels > * {
+  flex: 1;
+}
+
+.App section.two-panels .content h1{
+  font-size: clamp(var(--primary-fs), var(--primary-fs) + 2vw, 2.5rem);
+}
+
+.App section.two-panels .content > *:not(:first-child){
+  margin-top: 1.5em;
+}
+
+.App section.two-panels .content .link a {
+  color: var(--accent-cyan);
+}
+
+.App section.two-panels .content .link a:hover {
+  color: var(--neutral-very-white)
+}
+
+.App section.split-three-comments {
+  width: min(90%, 80rem);
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  gap: 2rem;
+  position: relative;
+  /* padding-bottom: 25rem; */
+  z-index: 99;
+}
+
+.App section.split-three-comments::before {
+  content: "";
+  position: absolute;
+  top: 0;
+  left: 0;
+  transform: translate(-10%,-75%);
+  width:3rem;
+  aspect-ratio: 1;
+  background-image: url("./images/bg-quotes.png");
+  background-position: center;
+  background-repeat: no-repeat;
+  background-size: contain;
+  z-index: -1;
+}
+
+.App section.split-three-comments .comment {
+  padding: 2rem;
+  border-radius: 10px;
+  background-color: var(--primary-testimonials-bg);
+}
+
+.App section.split-three-comments .comment > .profile{
+  margin-top: 1.5rem;
+  display: flex;
+  gap: 1rem;
+  align-items: center;
+}
+
+.App section.split-three-comments .comment > .profile img {
+  width: 40px;
+  aspect-ratio: 1;
+  border-radius: 50%;
+  object-fit: contain;
+}
+
+.App section.split-three-comments .comment > .profile .name-role {
+  font-size: 12px;
+}
+
+.App section.split-three-comments .comment > .profile .name-role .role{
+  font-size: 10px;
+  color: var(--neutral-grayish-white);
+}
+
+.App .email-box {
+  border-radius: 10px;
+  padding: 3rem;
+  background-color: var(--primary-intro-email-bg);
+  position: relative;
+  bottom: 0;
+  left: 0;
+  transform: translate(0,30%);
+  text-align: center;
+  max-width: 70rem;
+}
+
+.App .email-box h1 {
+  font-size: clamp(var(--primary-fs), var(--primary-fs) + 2vw, 2.5rem);
+}
+
+.App .email-box > *:not(:first-child){
+  margin-top: 1.5em;
+}
+
+.App .email-box .input-field {
+  display: flex;
+  justify-content: center;
+  gap: 1.5em;
+  position: relative;
+}
+
+.App .email-box input {
+  border-radius: 10em;
+  padding: 1em 2em;
+  flex-basis: 300%;
+  
+} 
+
+.App .email-box button {
+  flex-basis: 100%;
+}
+
+.App .email-box .error {
+  position: absolute;
+  content: "";
+  top: 100%;
+  left: 5%;
+  color: var(--accent-light-red-error);
+  margin-top: .25em;
+  font-size: 12px;
+}
+
+@media screen and (max-width:600px){
+  .App section.features .grid {
+    grid-template-columns: 1fr;
+  }
+
+  .App section.two-panels {
+    flex-direction: column;
+  }
+
+  .App section.split-three-comments {
+    flex-direction: column;
+  }
+
+  .App .email-box  {
+    width: 90%;
+  }
+
+  .App .email-box .input-field {
+    flex-direction: column;
+  }
+}

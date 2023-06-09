@@ -1,0 +1,29 @@
+.Navbar {
+    padding-block: 3em;
+}
+
+.Navbar .container {
+    width: min(90%, 80rem);
+    margin-inline: auto;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.Navbar .nav-list {
+    margin-left: 1em;
+    display: flex;
+    list-style: none;
+    gap: 3em;
+}
+
+.Navbar .nav-items a {
+    text-decoration: none;
+    color: var(--neutral-white);
+    transition: 0.125s ease;
+}
+
+.Navbar .nav-items a:is(:hover, :focus-visible) {
+    color: var(--neutral-very-white);
+    text-decoration: underline;
+}
